@@ -30,3 +30,9 @@ class TestMyView(unittest.TestCase):
         info = my_view(request)
         self.assertEqual(info['one'].name, 'one')
         self.assertEqual(info['project'], 'app')
+
+    def test_d3_access(self):
+        from .views import d3_view
+        request = testing.DummyRequest()
+        result = d3_view(request)
+        self.assertEqual(result.status, '200 OK')
