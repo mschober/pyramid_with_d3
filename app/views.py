@@ -20,6 +20,10 @@ def my_view(request):
 def d3_view(request):
     return {}
 
+@view_config(route_name='route', renderer='templates/route.pt')
+def route_view(request):
+    return {'route_number':request.matchdict['route_number']}
+
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
 might be caused by one of the following things:
